@@ -1,0 +1,179 @@
+<html>
+
+<head>
+    <title> Calculo de Naranjo </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <br/>
+
+    <br/>
+    <br/>
+    <div>
+        <div class="container" role="main">
+            <div class="row" id="formConfirmation">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="panel panel-primary">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Calculo de Naranjo</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">
+                                    <label class="control-label"> Numero do Caso </label>
+                                    <input type="text" id="txtCaso" class="form-control maiusculo input-sm" maxlength="10" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label"> Data do Caso </label>
+                                    <input type="date" id="txtDataCaso" class="form-control maiusculo input-sm" required/>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">
+                                    <img border="0" alt="client-logo" class="pull-right" src="img/client-logo.jpg" width="75" height="75">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-10">
+                                    <hr />
+                                    <div class="alert alert-danger alert-dismissible" role="alert" id="alerta" style="display:none">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <strong>Atencao!</strong> <label id="lblconteudo-alerta"></label>
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Questao</th>
+                                                <th>SIM</th>
+                                                <th>NAO</th>
+                                                <th>DESC.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Existem relatos conclusivos sobre esta reacao?</td>
+                                                <td class="celula"><label for="q1-y"><input type="radio" name="q1" id="q1-y" value=1 class="questao1" onclick="handleClick(this);" /></label></td>
+                                                <td class="celula"><label for="q1-n"><input type="radio" name="q1" id="q1-n" value=0 class="questao1" onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q1-d"><input type="radio" name="q1" id="q1-d" value=0 class="questao1" onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>O evento clinico apareceu apos a administracao da droga suspeita?</td>
+                                                <td class="celula"><label for="q2-y"><input type="radio" name="q2" id="q2-y" value=2 onclick="handleClick(this);" /></label></td>
+                                                <td class="celula"><label for="q2-n"><input type="radio" name="q2" id="q2-n" value=-1 onclick="handleClick(this);" /></label></td>
+                                                <td class="celula"><label for="q2-d"><input type="radio" name="q2" id="q2-d" value=0 onclick="handleClick(this);" /></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>A reacao desapareceu quando a droga suspeita foi descontinuada ou quando um antagonista especifico foi administrado?</td>
+                                                <td class="celula"><label for="q3-y"><input type="radio" name="q3" id="q3-y" value=1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q3-n"><input type="radio" name="q3" id="q3-n" value=0 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q3-d"><input type="radio" name="q3" id="q3-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>A reacao reapareceu quando a droga e readministrada?</td>
+                                                <td class="celula"><label for="q4-y"><input type="radio" name="q4" id="q4-y" value=2 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q4-n"><input type="radio" name="q4" id="q4-n" value=-1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q4-d"><input type="radio" name="q4" id="q4-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Existem causas alterantivas (outras que nao e a droga) que pdoeriam ser causadoras da reacao?</td>
+                                                <td class="celula"><label for="q5-y"><input type="radio" name="q5" id="q5-y" value=-1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q5-n"><input type="radio" name="q5" id="q5-n" value=2 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q5-d"><input type="radio" name="q5" id="q5-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>A reacao reaparece quando um placebo e administrado?</td>
+                                                <td class="celula"><label for="q6-y"><input type="radio" name="q6" id="q6-y" value=-1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q6-n"><input type="radio" name="q6" id="q6-n" value=1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q6-d"><input type="radio" name="q6" id="q6-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>A droga foi detectada no sangue ou em outros fluidos biologicos em concentracoes sabidamente toxicas?</td>
+                                                <td class="celula"><label for="q7-y"><input type="radio" name="q7" id="q7-y" value=1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q7-n"><input type="radio" name="q7" id="q7-n" value=0 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q7-d"><input type="radio" name="q7" id="q7-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>A reacao aumenta de intensidade com o aumento da dose ou torna-se menos severa com a reducao da dose?</td>
+                                                <td class="celula"><label for="q8-y"><input type="radio" name="q8" id="q8-y" value=1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q8-n"><input type="radio" name="q8" id="q8-n" value=0 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q8-d"><input type="radio" name="q8" id="q8-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>O paciente tem historia de reacao semelhante para a mesma droga ou outra similar em alguma exposicao previa?</td>
+                                                <td class="celula"><label for="q9-y"><input type="radio" name="q9" id="q9-y" value=1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q9-n"><input type="radio" name="q9" id="q9-n" value=0 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q9-d"><input type="radio" name="q9" id="q9-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>A reacao adversa foi confirmada por qualquer evidencia objetiva?</td>
+                                                <td class="celula"><label for="q10-y"><input type="radio" name="q10" id="q10-y" value=1 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q10-n"><input type="radio" name="q10" id="q10-n" value=0 onclick="handleClick(this);"/></label></td>
+                                                <td class="celula"><label for="q10-d"><input type="radio" name="q10" id="q10-d" value=0 onclick="handleClick(this);"/></label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr />
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">
+                                    <label class="control-label pull-right">Resultado de Causalidade: </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" id="txtCausalidade" readonly class="form-control pull-left celula input-sm">
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-sm btn-primary pull-right" id="btnCalcula" style="display:none" onclick="validarCampos()"><i class="fa fa-save"></i>Calcular</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-10">
+                    <hr />
+                    <button class="btn btn-sm btn-info" id="btnImprime" style="display:none" onclick="generatePDF()"><i class="fa fa-save"></i> Salvar PDF</button>
+                    <button class="btn btn-sm btn-primary pull-right" id="btnNovoCalculo" onclick="location.reload();"><i class="fa fa-save"></i>Novo Calculo</button>
+                    <br />
+                    <br />
+                </div>
+                <div class="col-md-1">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
